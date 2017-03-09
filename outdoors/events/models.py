@@ -9,3 +9,4 @@ class Location(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=255)
     location = models.ForeignKey(Location)
+    description = models.TextField()
