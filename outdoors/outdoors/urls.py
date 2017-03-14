@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^trails/', views.trails, name='trails'),
     url(r'^traffic/', views.traffic, name='traffic'),
+    url(r'^test/', views.test, name='test'),
 ]

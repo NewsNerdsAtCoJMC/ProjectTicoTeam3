@@ -15,3 +15,8 @@ def traffic(request):
     locations = Location.objects.all()
     context = { 'locations': locations}
     return render(request, 'outdoors/traffic.html', context)
+
+def test(request):
+    locations = Location.objects.all()
+    context = { 'locations': locations}
+    return render(request, 'outdoors/test.html', context)
