@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 70%;
+      }
+
+
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <a href="http://127.0.0.1:8000/">home</a>
+    <a href="http://127.0.0.1:8000/venues/">venues</a>
+    <a href="http://127.0.0.1:8000/events/">events</a>
+    <a href="http://127.0.0.1:8000/events_trails/">events + trails</a>
+    <a href="http://127.0.0.1:8000/events_traffic/">events + traffic</a>
+
+    <!-- makes a div for the map -->
+    <div id="map"></div>
+
+    <script>
+
+      var map;
+
+      function initMap() {
+
+        var lincoln = {lat: 40.816391, lng: -96.704857};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: lincoln,
+          zoom: 15
+        });
+
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+
+        /*determines what content will be in the infowindows*/
+        {% for object in events %}
+          var contentString{{ object.id }} = '{{object.name}} | {{object.description}} | {{object.location}}'
+        {% endfor %}
+
+        /*initializes the infowindows and passes content into them*/
+        {% for object in events %}
+          var infowindow{{ object.id }} = new google.maps.InfoWindow({
+            content: contentString{{object.id}}
+          });
+        {% endfor %}
+
+        /*creates markers for each location*/
+        {% for object in events %}
+          var marker{{object.id}} = new google.maps.Marker({
+            position: {lat: {{object.location.lat}}, lng: {{object.location.longitude}}},
+            map: map,
+            title: '{{object.name}}'
+          });
+        {% endfor %}
+
+        /*adds a listener that opens the infowindow when the marker is clicked*/
+        {% for object in events %}
+          marker{{object.id}}.addListener('click', function() {
+            infowindow{{object.id}}.open(map, marker{{object.id}});
+          });
+        {% endfor %}
+
+
+      }
+
+    </script>
+
+    <!-- displays the location objects and ids at the bottom of the page -->
+    {% for object in events %}
+      <p>{{object.id}} | {{object.location}} | {{object.name}} | {{object.description}}</p>
+    {% endfor %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUFaxmMW_oYTkSwRuohHzarcsJUWGh9l0&callback=initMap"
+    async defer></script>
+  </body>
+</html>

@@ -15,4 +15,4 @@ class Event(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return "%s" % self.year
+        return "%s" % self.name
