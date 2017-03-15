@@ -8,12 +8,14 @@ def index(request):
 
 def events_trails(request):
     events = Event.objects.all()
-    context = { 'events': events}
+    locations = Location.objects.all()
+    context = { 'events': events, 'locations':locations}
     return render(request, 'outdoors/events_trails.html', context)
 
 def events_traffic(request):
     events = Event.objects.all()
-    context = { 'events': events}
+    locations = Location.objects.all()
+    context = { 'events': events, 'locations':locations}
     return render(request, 'outdoors/events_traffic.html', context)
 
 def venues(request):
@@ -23,5 +25,6 @@ def venues(request):
 
 def events(request):
     events = Event.objects.all()
-    context = { 'events': events}
+    locations = Location.objects.all()
+    context = { 'events': events, 'locations':locations}
     return render(request, 'outdoors/events.html', context)

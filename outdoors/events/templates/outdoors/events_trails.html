@@ -44,29 +44,35 @@
         var bikeLayer = new google.maps.BicyclingLayer();
         bikeLayer.setMap(map);
 
-        /*determines what content will be in the infowindows*/
-        {% for object in events %}
-          var contentString{{ object.id }} = '{{object.name}} | {{object.description}} | {{object.location}}'
+        /*Titles the location*/
+        /*lists out each event and event description at the proper location*/
+        {% for object in locations %}
+          var contentString{{ object.id }} = '<h3>{{object.name}}</h3>'
+          {%for item in events%}
+              {%if item.location.name == object.name%}
+                var contentString{{ object.id }} = contentString{{object.id}} + '<b>{{item.name}}</b><br>' + '&nbsp;&nbsp;&nbsp;  {{item.description}}<br><br>'
+              {%endif%}
+          {%endfor%}
         {% endfor %}
 
         /*initializes the infowindows and passes content into them*/
-        {% for object in events %}
+        {% for object in locations %}
           var infowindow{{ object.id }} = new google.maps.InfoWindow({
-            content: contentString{{object.id}}
+              content:contentString{{object.id}}
           });
         {% endfor %}
 
         /*creates markers for each location*/
-        {% for object in events %}
+        {% for object in locations %}
           var marker{{object.id}} = new google.maps.Marker({
-            position: {lat: {{object.location.lat}}, lng: {{object.location.longitude}}},
+            position: {lat: {{object.lat}}, lng: {{object.longitude}}},
             map: map,
             title: '{{object.name}}'
           });
         {% endfor %}
 
         /*adds a listener that opens the infowindow when the marker is clicked*/
-        {% for object in events %}
+        {% for object in locations %}
           marker{{object.id}}.addListener('click', function() {
             infowindow{{object.id}}.open(map, marker{{object.id}});
           });
