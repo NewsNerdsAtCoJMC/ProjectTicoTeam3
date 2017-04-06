@@ -28,3 +28,9 @@ def events(request):
     locations = Location.objects.all()
     context = { 'events': events, 'locations':locations}
     return render(request, 'outdoors/events.html', context)
+
+def traffic(request):
+    events = Event.objects.all()
+    locations = Location.objects.all()
+    context = { 'events': events, 'locations':locations}
+    return render(request, 'outdoors/traffic.html', context)

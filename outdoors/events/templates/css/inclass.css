@@ -1,0 +1,151 @@
+* {
+   font-family: sans-serif; 
+}
+body {
+    background-color: #cecece;
+	margin: 0;
+	padding: 0;
+}
+h1 {
+    font-size: 2em;
+	margin-top: 1em;
+}
+h2 {
+    font-size: 1.5em;
+	margin-top: 1em;
+}
+.margintop {
+	margin-top: 1.5em 5em 2em 1em;
+}
+p, ul, ol {
+    font-size: 1em;   
+}
+
+a:link {
+    color: green;
+    text-decoration: none;
+}
+a:visited {
+    color: darkred;
+    text-decoration: underline;
+    font-style: italic;
+}
+a:hover {
+    color: darkgreen;
+    text-decoration: underline;
+}
+
+.crazy {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}  
+
+
+/* Grid */
+.container-fluid {
+    max-width: 1200px; 
+	background-color: #ffffff;
+	padding: 0;
+}
+
+
+
+/* Navigation */
+nav {
+    clear: both;
+    width: 100%;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+nav li {
+    width: 25%;
+    display: inline;
+    float: left;
+}
+nav li a:link, nav li a:visited {
+    color: #666;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 1);
+}
+nav li a:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+/* Styles */
+
+img {
+	max-width: 100%;
+}
+.button {
+	padding: 2em;
+	color: dimgrey;
+	border: solid thin #F8DF00;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.green_btn {
+	background-color: mediumseagreen;
+}
+
+.red_btn {
+	background-color: indianred;
+}
+
+.red {background-color: red}
+.blue {background-color: blue;
+	background-image: URL("https://www.raisingcanes.com/sites/default/files/15343_Quality_Website_RotatingBanner_1.jpg");
+	padding-top: 15px;
+}
+.green {
+	background-color: black;
+	color: white;
+}
+.yellow {
+	background-color: black;
+	color: white;
+}
+.purple {
+	background-color: black;	
+	color: white;
+}
+.orange {
+	background-color: black;
+	color: white;
+
+}
+
+.transbox {
+	width: 350px;
+	margin: 40px;
+	padding: 2px;
+	background-color: #ffffff;
+	border:  thick black;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	float: right;
+}
+.transbox p {
+	margin: 5%;
+	font-weight: thin;
+	color: #000000;
+}
+.transbox h1 {
+	color: #FB0004;
+}
+
+.imageContainer {
+	width: 1300px;
+}
+.logo {
+	float: inline-start;
+	width: 200px;
+}

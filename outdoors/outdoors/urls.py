@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^events_traffic/', views.events_traffic, name='events_traffic'),
     url(r'^venues/', views.venues, name='venues'),
     url(r'^events/', views.events, name='events'),
+    url(r'^traffic/', views.traffic, name='traffic'),
 ]
