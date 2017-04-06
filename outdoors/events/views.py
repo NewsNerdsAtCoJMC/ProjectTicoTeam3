@@ -1,22 +1,30 @@
 from django.shortcuts import render
-from .models import Location
+from .models import Location, Event
 
 def index(request):
     locations = Location.objects.all()
     context = { 'locations': locations}
     return render(request, 'outdoors/index.html', context)
 
-def trails(request):
+def events_trails(request):
+    events = Event.objects.all()
     locations = Location.objects.all()
-    context = { 'locations': locations}
-    return render(request, 'outdoors/trails.html', context)
+    context = { 'events': events, 'locations':locations}
+    return render(request, 'outdoors/events_trails.html', context)
 
-def traffic(request):
+def events_traffic(request):
+    events = Event.objects.all()
     locations = Location.objects.all()
-    context = { 'locations': locations}
-    return render(request, 'outdoors/traffic.html', context)
+    context = { 'events': events, 'locations':locations}
+    return render(request, 'outdoors/events_traffic.html', context)
 
-def test(request):
+def venues(request):
     locations = Location.objects.all()
     context = { 'locations': locations}
-    return render(request, 'outdoors/test.html', context)
+    return render(request, 'outdoors/venues.html', context)
+
+def events(request):
+    events = Event.objects.all()
+    locations = Location.objects.all()
+    context = { 'events': events, 'locations':locations}
+    return render(request, 'outdoors/events.html', context)

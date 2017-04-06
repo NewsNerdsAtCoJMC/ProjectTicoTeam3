@@ -3,10 +3,10 @@ from django.db import models
 class Location(models.Model):
     name = models.CharField(max_length=255)
     lat = models.FloatField()
-    long = models.FloatField()
+    longitude = models.FloatField()
 
     def __str__(self):
-        return "%s" % self.year
+        return "%s" % self.name
 
 
 class Event(models.Model):
@@ -15,4 +15,4 @@ class Event(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return "%s" % self.year
+        return "%s" % self.name
