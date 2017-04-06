@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+.header {
+	background-color: red;
+	height: 90px;
+}
+.logo {
+	height: 75px;
+	background-color: grey;
+	display: inline;
+}
+img {
+	width: 90px;
+	height: 75px;
+}
+.date {
+	height: 75px;
+	background-color: orange;
+	float: right;
+	display: inline;
+	text-align: right;
+}
+.nav {
+	background-color: blue;
+}
+.body {
+	background-color: green;
+	height: 500px;
+}
+.footer {
+	background-color: purple;
+}
+.left {
+	background-color: yellow;
+	display: inline;
+}
+.map {
+	background-color: aqua;
+	display: inline;
+	height: 500px;
+}
+.right {
+	background-color: darkseagreen;
+	display: inline;
+}
+.container-fluid {
+    max-width: 1200px; 
+	background-color: #ffffff;
+	padding: 0;
+}
