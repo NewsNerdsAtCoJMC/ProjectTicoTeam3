@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {%block style %}
-
-{% block content %}
 <style>
   /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
@@ -19,6 +17,41 @@
   }
 </style>
 {% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 70%;
+      }
+
+
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <a href="http://127.0.0.1:8000/">home</a>
+    <a href="http://127.0.0.1:8000/venues/">venues</a>
+    <a href="http://127.0.0.1:8000/events/">events</a>
+    <a href="http://127.0.0.1:8000/events_trails/">events + trails</a>
+    <a href="http://127.0.0.1:8000/events_traffic/">events + traffic</a>
+
+>>>>>>> e7af9609b9a1f67d630a69b8f51991daa54a9926
     <!-- makes a div for the map -->
     <div id="map"></div>
 
@@ -84,4 +117,9 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUFaxmMW_oYTkSwRuohHzarcsJUWGh9l0&callback=initMap"
     async defer></script>
+<<<<<<< HEAD
+=======
+  </body>
+</html>
+>>>>>>> e7af9609b9a1f67d630a69b8f51991daa54a9926
 {% endblock %}
