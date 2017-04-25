@@ -4,6 +4,9 @@ class Location(models.Model):
     name = models.CharField(max_length=255)
     lat = models.FloatField()
     longitude = models.FloatField()
+    def get_absolute_url(self):
+        return self.id
+
 
     def __str__(self):
         return "%s" % self.name

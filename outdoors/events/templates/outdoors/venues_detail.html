@@ -49,32 +49,26 @@
         });
 
         /*determines what content will be in the infowindows*/
-        {% for object in locations %}
-          var contentString{{ object.id }} = '{{object.name}}'
-        {% endfor %}
+
+          var contentString{{ location.id }} = '{{locations.name}}'
+
 
         /*initializes the infowindows and passes content into them*/
-        {% for object in locations %}
-          var infowindow{{ object.id }} = new google.maps.InfoWindow({
-            content: contentString{{object.id}}
+          var infowindow{{ location.id }} = new google.maps.InfoWindow({
+            content: contentString{{location.id}}
           });
-        {% endfor %}
 
         /*creates markers for each location*/
-        {% for object in locations %}
-          var marker{{object.id}} = new google.maps.Marker({
-            position: {lat: {{object.lat}}, lng: {{object.longitude}}},
+          var marker{{location.id}} = new google.maps.Marker({
+            position: {lat: {{location.lat}}, lng: {{location.longitude}}},
             map: map,
-            title: '{{object.name}}'
+            title: '{{location.name}}'
           });
-        {% endfor %}
 
         /*adds a listener that opens the infowindow when the marker is clicked*/
-        {% for object in locations %}
-          marker{{object.id}}.addListener('click', function() {
-            infowindow{{object.id}}.open(map, marker{{object.id}});
+          marker{{location.id}}.addListener('click', function() {
+            infowindow{{location.id}}.open(map, marker{{location.id}});
           });
-        {% endfor %}
 
         }
     </script>
@@ -83,10 +77,8 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUFaxmMW_oYTkSwRuohHzarcsJUWGh9l0&callback=initMap">
     </script>
 
-    <!-- displays the location objects and ids at the bottom of the page -->
-    {% for object in locations %}
-      <p><a href="{{object.get_absolute_url}}">{{object.name}}</a></p>
-    {% endfor %}
+    <!-- displays the location locations and ids at the bottom of the page -->
+      <p><a href="{{location.get_absolute_url}}">{{location.name}}</a></p>
 
   </body>
 </html>

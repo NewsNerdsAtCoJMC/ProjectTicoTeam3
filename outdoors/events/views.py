@@ -23,6 +23,11 @@ def venues(request):
     context = { 'locations': locations}
     return render(request, 'outdoors/venues.html', context)
 
+def venues_detail(request, pk):
+    location = Location.objects.get(id=pk)
+    context = { 'location': location}
+    return render(request, 'outdoors/venues_detail.html', context)
+
 def events(request):
     events = Event.objects.all()
     locations = Location.objects.all()
